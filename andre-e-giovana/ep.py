@@ -1,7 +1,7 @@
 from funcoes import num_palavras, palavras_unicas, num_linhas, buscar_palavra, sub_palavras, imp_linha, frequencia_palavras
 import os
 
-endereço = "C:/Users/ndrca/OneDrive/Documents/UFABC Misc/ufabc python/andre-e-giovana/"
+endereço = "C:/Users/ndrca/OneDrive/Documents/GitHub/EP-UFABC/andre-e-giovana"
 os.chdir(endereço)
 
 print("Projeto Dirigido de André Inamura Calixto e Giovana Coutinho Nascimento \n")
