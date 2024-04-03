@@ -3,7 +3,7 @@ def num_palavras (arquivo):
     quantidade_palavras = 0
     f = open(arquivo, "r", encoding='utf-8-sig')
     for linha in f:
-        palavras = linha.split()
+        palavras = linha.split() #separa a linha em palavras
         quantidade_palavras += len(palavras)
     if quantidade_palavras == 1:
         return "O arquivo possui 1 palavra."
