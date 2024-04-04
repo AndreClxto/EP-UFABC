@@ -1,3 +1,4 @@
+# Importa as funções necessárias das bibliotecas 'matplotlib.pyplot' e 'wordcloud'
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
