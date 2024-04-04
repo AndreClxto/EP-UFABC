@@ -1,6 +1,8 @@
+# Importa as funções necessárias da biblioteca 'os' e do arquivo 'funcoes.py'
 from funcoes import num_palavras, palavras_unicas, num_linhas, buscar_palavra, sub_palavras, imp_linha, frequencia_palavras, nuvemDePalavras
 import os
 
+# Informa ao programa o diretório em que ele deve trabalhar
 endereço = "C:/Users/ndrca/OneDrive/Documents/GitHub/EP-UFABC/andre-e-giovana"
 os.chdir(endereço)
 
@@ -12,8 +14,10 @@ def main():
     while True:
         arquivo = str(input())
         arquivo_tipo = os.path.splitext(arquivo)[1]
+        # Verifica se o arquivo existe no diretório alvo
         if not os.path.exists(arquivo):
             print(f"O arquivo '{arquivo}' não existe\nTente novamente.")
+        # Verifica se o arquivo é, de fato, do tipo txt
         elif arquivo_tipo != ".txt":
             print("O arquivo precisa ser do tipo txt\nTente novamente.\n")
         else:
@@ -68,15 +72,18 @@ def main():
             break
 
         elif opcoes == 9:
+            # Define todas as opções de plano de fundo e de paleta de cores que o usuário pode escolher para a wordcloud
             opcoes_bg_color = ["white", "black", "lightgray", "lightblue"]
             opcoes_colormap = ["magma", "Spectral", "plasma", "copper", "viridis", "twilight", "gist_rainbow", "Wistia", "spring", "turbo"]
             max_palavras = int(input("Escreva qual o número máximo de palavras que deseja ver na nuvem: \n"))
+            # Verifica se o usuário digitou uma opção válida para a cor de plano de fundo
             while True:
                 bg_color = str(input("Escolha dentre as seguintes opções de cores para plano de fundo:\n\n- white\n- black\n- lightgray\n- lightblue\n"))
                 if not bg_color in opcoes_bg_color:
                     print("Escreva uma opção válida.")
                 else:
                     break
+            # Verifica se o usuário digitou uma opção válida para a paleta de cores
             while True:
                 colormap = str(input("Escolha dentre as seguintes opções de paleta de cor:\n\n- magma\n- Spectral\n- plasma\n- copper\n- viridis\n- twilight\n- gist_rainbow\n- Wistia\n- spring\n- turbo\n"))
                 if not colormap in opcoes_colormap:
