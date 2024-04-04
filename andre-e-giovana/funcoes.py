@@ -68,8 +68,9 @@ def buscar_palavra(maiuscula: str, arquivo):
     conjunto_palavras = list()
     for linha in conjunto_linhas:
         for palavra in linha.split():
-            conjunto_palavras.append(palavra.upper())
-            if palavra.upper() == maiuscula:
+            palavra_limpa = palavra.strip(".,!?")
+            conjunto_palavras.append(palavra_limpa.upper())
+            if palavra_limpa.upper() == maiuscula:
                 return linha
     return False
 
@@ -88,7 +89,7 @@ def nuvemDePalavras(arquivo, bg_color, colormap, max_palavras):
     # Lê todo o texto do arquivo
     f = open(arquivo, "r", encoding='utf-8-sig')
     texto = f.read()
-    # Cria a nuvem alguns parametros oferecidos pelo usuário
+    # Cria a nuvem com alguns parametros oferecidos pelo usuário
     wordcloud = WordCloud(max_words=max_palavras, max_font_size=60, background_color=bg_color, colormap=colormap).generate(texto)
     # Exibi a imagem
     plt.figure()
