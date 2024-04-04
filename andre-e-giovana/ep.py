@@ -1,4 +1,4 @@
-from funcoes import num_palavras, palavras_unicas, num_linhas, buscar_palavra, sub_palavras, imp_linha, frequencia_palavras
+from funcoes import num_palavras, palavras_unicas, num_linhas, buscar_palavra, sub_palavras, imp_linha, frequencia_palavras, nuvemDePalavras
 import os
 
 endereço = "C:/Users/ndrca/OneDrive/Documents/GitHub/EP-UFABC/andre-e-giovana"
@@ -66,10 +66,24 @@ def main():
         elif opcoes == 8:
             main()
             break
-        
-        # Andre precisa fazer
+
         elif opcoes == 9:
-            print("Função em desenvolvimento")
+            opcoes_bg_color = ["white", "black", "lightgray", "lightblue"]
+            opcoes_colormap = ["magma", "Spectral", "plasma", "copper", "viridis", "twilight", "gist_rainbow", "Wistia", "spring", "turbo"]
+            max_palavras = int(input("Escreva qual o número máximo de palavras que deseja ver na nuvem: \n"))
+            while True:
+                bg_color = str(input("Escolha dentre as seguintes opções de cores para plano de fundo:\n\n- white\n- black\n- lightgray\n- lightblue\n"))
+                if not bg_color in opcoes_bg_color:
+                    print("Escreva uma opção válida.")
+                else:
+                    break
+            while True:
+                colormap = str(input("Escolha dentre as seguintes opções de paleta de cor:\n\n- magma\n- Spectral\n- plasma\n- copper\n- viridis\n- twilight\n- gist_rainbow\n- Wistia\n- spring\n- turbo\n"))
+                if not colormap in opcoes_colormap:
+                    print("Escreva uma opção válida.")
+                else:
+                    break
+            nuvemDePalavras(arquivo, bg_color, colormap, max_palavras)
                 
         elif opcoes == 10:
             print("Programa encerrado")

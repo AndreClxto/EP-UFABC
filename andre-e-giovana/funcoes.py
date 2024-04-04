@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
 # Referente a opção 1
 def num_palavras (arquivo):
     quantidade_palavras = 0
@@ -77,3 +80,17 @@ def sub_palavras(nova, antiga, nome_arquivo, arquivo):
     texto = f.read()
     novo_texto = texto.replace(antiga, nova)
     novo_arquivo.write(novo_texto)
+
+
+# Referente a opção 9
+def nuvemDePalavras(arquivo, bg_color, colormap, max_palavras):
+    # Lê todo o texto do arquivo
+    f = open(arquivo, "r+", encoding='utf-8-sig')
+    texto = f.read()
+    # Cria a nuvem alguns parametros oferecidos pelo usuário
+    wordcloud = WordCloud(max_words=max_palavras, max_font_size=60, background_color=bg_color, colormap=colormap).generate(texto)
+    # Exibi a imagem
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.show()
