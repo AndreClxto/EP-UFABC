@@ -109,7 +109,7 @@ def nuvemDePalavras(arquivo, bg_color, colormap, max_palavras):
     # Lê todo o texto do arquivo
     f = open(arquivo, "r", encoding='utf-8-sig')
     texto = f.read()
-    # Cria a nuvem com alguns parametros oferecidos pelo usuário
+    # Cria a nuvem com alguns parametros fornecidos pelo usuário
     wordcloud = WordCloud(max_words=max_palavras, max_font_size=60, background_color=bg_color, colormap=colormap).generate(texto)
     # Exibi a imagem
     plt.figure()
