@@ -23,7 +23,7 @@ def palavras_unicas(arquivo):
     conjunto_palavras = list()
     f = open(arquivo, "r", encoding='utf-8-sig')
     conjunto_linhas = f.readlines()
-    #Separa o arquivo em palavras
+    # Separa o arquivo em palavras
     for linha in conjunto_linhas:
         for palavra in linha.split():
             palavra_limpa = palavra.strip(".,!?")
@@ -83,7 +83,7 @@ def buscar_palavra(maiuscula: str, arquivo):
         for palavra in linha.split():
             # excluir pontuação
             palavra_limpa = palavra.strip(".,!?")
-            # adiciona a palavra limpa à lista conjunto_palavras
+            # adiciona a palavra limpa à lista conjunto_palavras em maiusculo, para evitar a diferenciação em relação à capitalização
             conjunto_palavras.append(palavra_limpa.upper())
             # verifica se a palavra limpa é igual a palavra especificada
             if palavra_limpa.upper() == maiuscula:
@@ -95,7 +95,7 @@ def sub_palavras(nova, antiga, nome_arquivo, arquivo):
     f = open(arquivo, "r+", encoding='utf-8-sig')
     # cria o caminho onde as mudanças serão salvas
     caminho_arquivo = f"{nome_arquivo}.txt"
-    # abre o arquivo onde as mudanças serão salvas no modo de edição
+    # Cria o arquivo onde as mudanças serão salvas no modo de edição
     novo_arquivo = open(caminho_arquivo, 'w', encoding='utf-8-sig')
     texto = f.read()
     # Substitui a ocorrência da palavra antiga pela nova
