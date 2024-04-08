@@ -58,7 +58,7 @@ def frequencia_palavras(arquivo):
     for linha in conjunto_linhas:
         conjunto_palavras = linha.split()
         for palavra in conjunto_palavras:
-            # exclui a contagem de pontuação
+            # remove a pontuação
             palavra_limpa = palavra.strip(".,!?")
             # conta a frequência de cada palavra
             if palavra_limpa:
@@ -77,11 +77,15 @@ def imp_linha(arquivo, indice_linha):
 def buscar_palavra(maiuscula: str, arquivo):
     f = open(arquivo, "r", encoding='utf-8-sig')    
     conjunto_linhas = f.readlines()
+    # armazena as palavras limpas do arquivo
     conjunto_palavras = list()
     for linha in conjunto_linhas:
         for palavra in linha.split():
+            # excluir pontuação
             palavra_limpa = palavra.strip(".,!?")
+            # adiciona a palavra limpa à lista conjunto_palavras
             conjunto_palavras.append(palavra_limpa.upper())
+            # verifica se a palavra limpa é igual a palavra especificada
             if palavra_limpa.upper() == maiuscula:
                 return linha
     return False
@@ -89,12 +93,14 @@ def buscar_palavra(maiuscula: str, arquivo):
 # Referente a opção 7
 def sub_palavras(nova, antiga, nome_arquivo, arquivo):
     f = open(arquivo, "r+", encoding='utf-8-sig')
+    # cria o caminho onde as mudanças serão salvas
     caminho_arquivo = f"{nome_arquivo}.txt"
-    # arquivo onde as mudanças serão salvas
+    # abre o arquivo onde as mudanças serão salvas no modo de edição
     novo_arquivo = open(caminho_arquivo, 'w', encoding='utf-8-sig')
     texto = f.read()
-    # Substitui a ocorrência de uma palavra por outra
+    # Substitui a ocorrência da palavra antiga pela nova
     novo_texto = texto.replace(antiga, nova)
+    # escreve o texto modificado no novo arquivo
     novo_arquivo.write(novo_texto)
 
 
