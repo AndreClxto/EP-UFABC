@@ -6,9 +6,11 @@ from wordcloud import WordCloud
 def num_palavras (arquivo):
     quantidade_palavras = 0
     f = open(arquivo, "r", encoding='utf-8-sig')
+   # Separa as linhas em palavras
     for linha in f:
-        palavras = linha.split() #separa a linha em palavras
+        palavras = linha.split()
         quantidade_palavras += len(palavras)
+  # Conta as palavras do arquivo
     if quantidade_palavras == 1:
         return "O arquivo possui 1 palavra."
     elif quantidade_palavras > 1:
@@ -21,10 +23,12 @@ def palavras_unicas(arquivo):
     conjunto_palavras = list()
     f = open(arquivo, "r", encoding='utf-8-sig')
     conjunto_linhas = f.readlines()
+    #Separa o arquivo em palavras
     for linha in conjunto_linhas:
         for palavra in linha.split():
             palavra_limpa = palavra.strip(".,!?")
             conjunto_palavras.append(palavra_limpa)
+    # Conta as palavras somente uma vez
     unicas = set(list(map(str.upper, conjunto_palavras)))
     if len(unicas) > 1: 
         return f"Há {len(unicas)} palavras distintas neste documento."
@@ -36,7 +40,9 @@ def palavras_unicas(arquivo):
 # Referente a opção 3
 def num_linhas(arquivo):
     f = open(arquivo, "r", encoding='utf-8-sig')
+    #Separa o arquivo em linhas
     conjunto_linhas = f.readlines()
+    #Conta a quantidade de linhas
     if conjunto_linhas > 1:
         return f"Há {len(conjunto_linhas)} linhas neste documento."
     elif conjunto_linhas == 0:
@@ -46,11 +52,15 @@ def num_linhas(arquivo):
 def frequencia_palavras(arquivo):
     contagem_palavras = {}
     f = open(arquivo, "r", encoding='utf-8-sig')
+    # separa o arquivo em linhas
     conjunto_linhas = f.readlines()
+    # separa a linha em palavras
     for linha in conjunto_linhas:
         conjunto_palavras = linha.split()
         for palavra in conjunto_palavras:
+            # exclui a contagem de pontuação
             palavra_limpa = palavra.strip(".,!?")
+            # conta a frequência de cada palavra
             if palavra_limpa:
                 contagem_palavras[palavra_limpa] = contagem_palavras.get(palavra_limpa, 0) + 1
     return contagem_palavras
@@ -58,7 +68,9 @@ def frequencia_palavras(arquivo):
 # Referente a opção 5
 def imp_linha(arquivo, indice_linha):
     f = open(arquivo, "r", encoding='utf-8-sig')
+    # Separa o arquivo em linhas
     conjunto_linhas = f.readlines()
+    # retorna a linha específica
     return conjunto_linhas[indice_linha-1]
 
 # Referente a opção 6
@@ -78,8 +90,10 @@ def buscar_palavra(maiuscula: str, arquivo):
 def sub_palavras(nova, antiga, nome_arquivo, arquivo):
     f = open(arquivo, "r+", encoding='utf-8-sig')
     caminho_arquivo = f"{nome_arquivo}.txt"
+    # arquivo onde as mudanças serão salvas
     novo_arquivo = open(caminho_arquivo, 'w', encoding='utf-8-sig')
     texto = f.read()
+    # Substitui a ocorrência de uma palavra por outra
     novo_texto = texto.replace(antiga, nova)
     novo_arquivo.write(novo_texto)
 
