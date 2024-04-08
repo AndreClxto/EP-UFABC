@@ -39,7 +39,9 @@ def main():
             print(num_linhas(arquivo))
         
         elif opcoes == 4:
+            # Conta a ocorrência de cada palavra por meio da seguinte função
             contagem_palavras = frequencia_palavras(arquivo)
+            # Verifica se há algum texto dentro do documento ou não
             if contagem_palavras:
                 print("Frequência das palavras:\n")
                 for palavra, quantidade in contagem_palavras.items():
@@ -51,6 +53,7 @@ def main():
                 print("O documento está vazio.")
         
         elif opcoes == 5:
+            # Verifica se a linha especificada realmente existe
             while True:
                 indice_linha = int(input("Escreva o número da linha que você deseja imprimir: \n"))
                 if imp_linha(arquivo, indice_linha) != False:
@@ -62,6 +65,7 @@ def main():
             busca = str(input("Escreva a palavra que você quer procurar.\n"))
             maiuscula = busca.upper()
             resultado = buscar_palavra(maiuscula, arquivo)
+            # Imprimi a linha referente à palavra especificada somente se ela realmente existir no texto
             if resultado == False:
                 print(f"A palavra '{busca}' não foi achada no documento.")
             else:
