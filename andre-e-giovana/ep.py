@@ -27,12 +27,15 @@ def main():
         opcoes = int(input("\nDigite o número da opção desejada:\n\n1. Número de palavras\n2. Número de palavras distintas\n3. Número de linhas\n4. Frequência das palavras\n5. Imprimir uma linha específica\n6. Buscar uma palavra e imprimir a linha em que aparece a primeira ocorrência da palavra\n7. Substituir todas as ocorrências de uma palavra por outra\n8. Abrir outro livro\n9. Gerar nuvem de palavras\n10. Encerrar o programa\n"))
 
         if opcoes == 1:
+            # Imprime o resultado da função num_palavras
             print(num_palavras(arquivo))
 
         elif opcoes == 2:
+            # Imprime o resultado da função palavras_unicas
             print(palavras_unicas(arquivo))
 
         elif opcoes == 3:
+            # Imprime o resultado da função num_linhas
             print(num_linhas(arquivo))
         
         elif opcoes == 4:
@@ -48,8 +51,12 @@ def main():
                 print("O documento está vazio.")
         
         elif opcoes == 5:
-            indice_linha = int(input("Escreva o número da linha que você deseja imprimir: \n"))
-            print(imp_linha(arquivo, indice_linha))
+            while True:
+                indice_linha = int(input("Escreva o número da linha que você deseja imprimir: \n"))
+                if imp_linha(arquivo, indice_linha) != False:
+                    # Imprime a linha apontada pelo usuário
+                    print(imp_linha(arquivo, indice_linha))
+                    break
         
         elif opcoes == 6:
             busca = str(input("Escreva a palavra que você quer procurar.\n"))
@@ -64,10 +71,12 @@ def main():
             nova = str(input("Escreva a palavra que você deseja adicionar ao documento:\n"))
             antiga = str(input("Escreva a palavra que você deseja substituir no documento:\n"))
             nome_arquivo = str(input("Escreva o nome do novo documento, sem extensão, em que você deseja salvar esse texto:\n"))
+            # Chama a função sub_palavras que substitui todas as ocorrências de uma palavra especificada por outra
             sub_palavras(nova, antiga, nome_arquivo, arquivo)
             print(f"Todas as palavras '{antiga}', foram substituídas por '{nova}' no novo arquivo: {nome_arquivo}.txt")
         
         elif opcoes == 8:
+            # Chama a função main novamente, resetando o loop, e fecha o que ja está rodando
             main()
             break
 
@@ -94,9 +103,11 @@ def main():
                 
         elif opcoes == 10:
             print("Programa encerrado")
+            # O parâmetro break encerra o loop, encerrando assim, todo o programa
             break
 
         else:
+            # Se o usuário não digitar um dos números de 1-10, cada um referente a uma opção, o programa emite uma mensagem de erro e reinicia o loop
             print("Insira uma opção válida")
         
 main()

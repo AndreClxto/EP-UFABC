@@ -43,7 +43,7 @@ def num_linhas(arquivo):
     #Separa o arquivo em linhas
     conjunto_linhas = f.readlines()
     #Conta a quantidade de linhas
-    if conjunto_linhas > 1:
+    if len(conjunto_linhas) > 1:
         return f"Há {len(conjunto_linhas)} linhas neste documento."
     elif conjunto_linhas == 0:
         return "O documento está vazio."
@@ -70,6 +70,9 @@ def imp_linha(arquivo, indice_linha):
     f = open(arquivo, "r", encoding='utf-8-sig')
     # Separa o arquivo em linhas
     conjunto_linhas = f.readlines()
+    if indice_linha > len(conjunto_linhas) or indice_linha < 1:
+        print("A linha que você digitou não existe.")
+        return False
     # retorna a linha específica
     return conjunto_linhas[indice_linha-1]
 
