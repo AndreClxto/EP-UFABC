@@ -2,3 +2,12 @@ Integrantes da dupla:
 
 - André Inamura Calixto, RA: 11202321544
 - Giovana Coutinho do Nascimento, RA: 11202130763
+
+Abaixo listo algumas fontes que auxiliaram na completude desse projeto:
+- w3schools.com
+- stackoverflow.com
+- wordcloud.com
+- datacamp.com
+- Copilot (IA da MiscroSoft)
+
+NOTA: Nenhuma das linhas de código foi copiada por inteiro, ou usada sem antes haver o pleno entendimento dos conceitos pela dupla. Usamos as fontes para resolver problemas lógicos específicos, ou para descobrir funções não vistas em aula.
