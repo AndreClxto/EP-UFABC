@@ -84,7 +84,7 @@ def buscar_palavra(maiuscula: str, arquivo):
     conjunto_palavras = list()
     for linha in conjunto_linhas:
         for palavra in linha.split():
-            # excluir pontuação
+            # exclui a pontuação
             palavra_limpa = palavra.strip(".,!?")
             # adiciona a palavra limpa à lista conjunto_palavras em maiusculo, para evitar a diferenciação em relação à capitalização
             conjunto_palavras.append(palavra_limpa.upper())
