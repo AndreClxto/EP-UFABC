@@ -6,7 +6,7 @@ import os
 endereço = "C:/Users/ndrca/OneDrive/Documents/GitHub/EP-UFABC/andre-e-giovana"
 os.chdir(endereço)
 
-print("Projeto Dirigido de André Inamura Calixto e Giovana Coutinho Nascimento \n")
+print("Projeto Dirigido de André Inamura Calixto e Giovana Coutinho do Nascimento \n")
 
 def main():
     print("Insira um arquivo txt dentro da pasta 'andre-e-giovana', e escreva seu nome no terminal.\nEx: arquivo.txt\n")
@@ -24,7 +24,7 @@ def main():
             break
 
     while True:
-        opcoes = int(input("\nDigite o número da opção desejada:\n\n1. Número de palavras\n2. Número de palavras distintas\n3. Número de linhas\n4. Frequência das palavras\n5. Imprimir uma linha específica\n6. Buscar uma palavra e imprimir a linha em que aparece a primeira ocorrência da palavra\n7. Substituir todas as ocorrências de uma palavra por outra\n8. Abrir outro livro\n9. Gerar nuvem de palavras\n10. Encerrar o programa\n"))
+        opcoes = int(input("\nDigite o número da opção desejada:\n\n1. Número de palavras\n2. Número de palavras distintas\n3. Número de linhas\n4. Frequência das palavras\n5. Imprimir uma linha específica\n6. Buscar uma palavra e imprimir a linha em que aparece sua primeira ocorrência\n7. Substituir todas as ocorrências de uma palavra por outra\n8. Abrir outro livro\n9. Gerar nuvem de palavras\n10. Encerrar o programa\n"))
 
         if opcoes == 1:
             # Imprime o resultado da função num_palavras
